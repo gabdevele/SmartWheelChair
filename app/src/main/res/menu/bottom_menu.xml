@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:title="Home"
+        android:icon="@drawable/round_home_24"
+
+        />
+    <item
+        android:id="@+id/navigation_activity"
+        android:title="Attività"
+        android:icon="@drawable/round_directions_run_24"
+
+        />
+    <item
+        android:id="@+id/navigation_settings"
+        android:title="Impostazioni"
+        android:icon="@drawable/round_settings_24"
+        />
+
+</menu>
