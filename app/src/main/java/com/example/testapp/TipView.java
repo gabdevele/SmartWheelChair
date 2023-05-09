@@ -5,7 +5,6 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.example.testapp.Utilities;
 
 public class TipView extends LinearLayout {
     public TipView(Context context) {
