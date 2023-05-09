@@ -1,14 +1,232 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SettingsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/titolo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/eloquia_bold"
+        android:text="Impostazioni"
+        android:textColor="@color/blue"
+        android:textStyle="bold"
+        android:textSize="29sp" />
 
-</FrameLayout>
+
+    <!--  Titolto della roba  -->
+    <TextView
+        android:id="@+id/generali"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/pesoLayout"
+        android:layout_alignStart="@+id/titolo"
+        android:text="Generali"
+        android:layout_marginBottom="-8dp"
+        android:textSize="18sp" />
+
+    <!--  Robe  -->
+    <LinearLayout
+        android:id="@+id/pesoLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="18dp"
+        android:layout_below="@+id/titolo"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Peso"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Imposta il tuo peso in chilogrammi"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/pesoInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:hint="Peso in kg"
+            android:maxLength="5"
+            android:layout_weight="1"
+            android:textAlignment="textEnd"
+            android:layout_marginStart="30dp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/temaLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="18dp"
+        android:layout_below="@+id/pesoLayout"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginBottom="30dp">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tema"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Imposta il tuo tema preferito           "
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <Spinner
+            android:id="@+id/temaSpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="textEnd"
+            android:layout_marginStart="0dp"/>
+    </LinearLayout>
+
+    <!--  Titolto della roba  -->
+    <TextView
+        android:id="@+id/unita"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/calorieLayout"
+        android:layout_alignStart="@+id/titolo"
+        android:text="Unità di misura"
+        android:layout_marginBottom="-8dp"
+        android:textSize="18sp" />
+
+    <!--  Robe  -->
+    <LinearLayout
+        android:id="@+id/calorieLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/temaLayout"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="18dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Calorie"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Imposta l'unita di misura che preferisci per le calorie"
+                android:maxWidth="230dp"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <Spinner
+            android:id="@+id/calorieSpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="textEnd"
+            android:layout_marginStart="0dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/velocitaLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/calorieLayout"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="18dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Velocità"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Imposta l'unita di misura che preferisci per la velocità"
+                android:maxWidth="230dp"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <Spinner
+            android:id="@+id/velocitaSpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="textEnd"
+            android:layout_marginStart="0dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/distanzaLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/velocitaLayout"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="18dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Distanza"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Imposta l'unita di misura che preferisci per la distanza"
+                android:maxWidth="230dp"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <Spinner
+            android:id="@+id/distanzaSpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="textEnd"
+            android:layout_marginStart="0dp"/>
+    </LinearLayout>
+
+</RelativeLayout>
