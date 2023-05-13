@@ -19,7 +19,7 @@
         android:textSize="29sp" />
 
 
-    <!--  Titolto della roba  -->
+    <!--  Titolo della roba  -->
     <TextView
         android:id="@+id/generali"
         android:layout_width="wrap_content"

@@ -14,7 +14,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginBottom="20dp"
         android:fontFamily="@font/eloquia_bold"
-        android:text="Le tue statistiche"
+        android:text="La tua attività"
         android:textColor="@color/blue"
         android:textStyle="bold"
         android:textSize="29sp"
@@ -22,216 +22,193 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/sottotitolo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/titolo"
+        android:layout_alignBottom="@+id/titolo"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="30dp"
+        android:text="00:00"
+        android:textSize="25sp"
+        android:textAlignment="center" />
+
+<!--  Se vuoi aggiungere uno sfondo tipo card potresti usare questo  -->
+<!--    android:background="@drawable/rounded_background"-->
+    <LinearLayout
+        android:id="@+id/statsDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button"
+        android:layout_below="@+id/tipDisplay"
+
+        android:layout_marginTop="40dp"
+        android:layout_marginHorizontal="30dp"
+        android:orientation="vertical"
+        android:paddingVertical="30dp">
+
+        <LinearLayout
+            android:id="@+id/fila0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titolo"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Calorie"
+                    android:textAlignment="center"
+                    android:textColor="@color/blue"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/calrCt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="0 kCal"
+                    android:textAlignment="center"
+                    android:textSize="30sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fila1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fila0"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Velocità"
+                    android:textAlignment="center"
+                    android:textColor="@color/blue"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/veloCt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="0 km/h"
+                    android:textAlignment="center"
+                    android:textSize="30sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Accelerazione"
+                    android:textAlignment="center"
+                    android:textColor="@color/blue"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/acceCt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="0 m/s"
+                    android:textAlignment="center"
+                    android:textSize="30sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fila1"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Distanza"
+                    android:textAlignment="center"
+                    android:textColor="@color/blue"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/distCt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="0 metri"
+                    android:textAlignment="center"
+                    android:textSize="30sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Forza"
+                    android:textAlignment="center"
+                    android:textColor="@color/blue"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/forzCt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="0 N"
+                    android:textAlignment="center"
+                    android:textSize="30sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/button_background"
+        android:text="Termina allenemento"
+        android:layout_marginVertical="50dp"
+        android:textColor="@color/cold_white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+    <com.example.testapp.TipView
+        android:id="@+id/tipDisplay"
+        android:paddingHorizontal="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/titolo"
-        android:layout_marginBottom="30dp"
-        android:paddingHorizontal="40dp"
-        android:text="Ti abbiamo aiuto a consumare\ncon successo ben 0 kCal"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <!--  Titolto della roba  -->
-    <TextView
-        android:id="@+id/massime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/tempoLayout"
-        android:layout_alignStart="@+id/titolo"
-        android:text="Massime"
-        android:layout_marginBottom="-8dp"
-        android:textSize="18sp" />
-
-    <!--  Robe  -->
-    <LinearLayout
-        android:id="@+id/tempoLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="18dp"
-        android:layout_below="@+id/sottotitolo"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tempo"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text="10:10"
-            android:textSize="20sp" />
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/calorieLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="18dp"
-        android:layout_below="@+id/tempoLayout"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Calorie"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text="0 kCal"
-            android:textSize="20sp" />
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/velocitaLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="18dp"
-        android:layout_below="@+id/calorieLayout"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Velocità"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text="0 km/h"
-            android:textSize="20sp" />
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/distanzaLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="18dp"
-        android:layout_below="@+id/velocitaLayout"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Distanza"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text="0 metri"
-            android:textSize="20sp" />
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/forzaLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="18dp"
-        android:layout_below="@+id/distanzaLayout"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Forza"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text="0 N"
-            android:textSize="20sp" />
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/accelerazioneLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="18dp"
-        android:layout_below="@+id/forzaLayout"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Accelerazione"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text="0 m/s²"
-            android:textSize="20sp" />
-    </LinearLayout>
-
-    <!--  Titolto della roba  -->
-    <TextView
-        android:id="@+id/giornalieri"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/accelerazioneLayout"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="-8dp"
-        android:layout_alignStart="@+id/titolo"
-        android:text="Obiettivi giornalieri"
-        android:textSize="18sp" />
-
-    <!--  Robe  -->
-    <LinearLayout
-        android:id="@+id/giornalieriMax"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="18dp"
-        android:layout_below="@+id/giornalieri"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Completati"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text="12"
-            android:textSize="20sp" />
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/giornalieriRecord"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="18dp"
-        android:layout_below="@+id/giornalieriMax"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Massimi"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text="5"
-            android:textSize="20sp" />
-    </LinearLayout>
-
-    <com.example.testapp.TipView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_alignParentBottom="true" />
+        />
 
 </RelativeLayout>

@@ -35,19 +35,16 @@
             app:cardPreventCornerOverlap="true"
             app:cardUseCompatPadding="true"
             app:layout_constraintTop_toTopOf="parent">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="10dp">
-
                 <com.github.mikephil.charting.charts.PieChart
                     android:id="@+id/pieChart"
                     android:layout_width="180dp"
                     android:layout_height="180dp" />
-
                 <TextView
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
@@ -57,10 +54,7 @@
                     android:text="Obiettivo giornaliero"
                     android:textColor="@color/blue"
                     android:textSize="20sp" />
-
-
             </LinearLayout>
-
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -74,21 +68,17 @@
             app:cardPreventCornerOverlap="true"
             app:cardUseCompatPadding="true"
             app:layout_constraintTop_toTopOf="parent">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:gravity = "center"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
                 <LinearLayout
                     android:layout_width="211dp"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:paddingHorizontal="10dp"
                     android:paddingVertical="10dp">
-
-
                     <TextView
                         android:id="@+id/textView3"
                         android:layout_width="wrap_content"
@@ -96,7 +86,6 @@
                         android:text="Raccomandazioni"
                         android:textColor="@color/blue"
                         android:textSize="20sp" />
-
                     <TextView
                         android:id="@+id/textView4"
                         android:layout_width="wrap_content"
@@ -105,17 +94,13 @@
                         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
                         android:textColor="@color/blue"
                         android:textSize="18sp" />
-
                 </LinearLayout>
-
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="140dp"
                     android:layout_height="140dp"
                     app:srcCompat="@drawable/ic_launcher_foreground" />
             </LinearLayout>
-
-
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -129,21 +114,17 @@
             app:cardPreventCornerOverlap="true"
             app:cardUseCompatPadding="true"
             app:layout_constraintTop_toTopOf="parent">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity = "center"
                 android:orientation="horizontal">
-
                 <LinearLayout
                     android:layout_width="218dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:paddingHorizontal="10dp"
                     android:paddingVertical="10dp">
-
-
                     <TextView
                         android:id="@+id/textView5"
                         android:layout_width="wrap_content"
@@ -173,8 +154,6 @@
                     android:textColor="@color/blue"
                     android:textSize="18sp" />
             </LinearLayout>
-
-
         </androidx.cardview.widget.CardView>
 
         <LinearLayout
