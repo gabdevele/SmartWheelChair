@@ -60,10 +60,11 @@ public class SettingsFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putFloat("peso", Float.parseFloat(s.toString()));
-                editor.apply();
-
+                if(!s.toString().isEmpty()){
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putFloat("peso", Float.parseFloat(s.toString()));
+                    editor.apply();
+                }
             }
         });
         pesoInput.setText(String.valueOf(peso));

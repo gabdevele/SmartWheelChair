@@ -1,214 +1,208 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ActivityFragment">
-
-    <TextView
-        android:id="@+id/titolo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="20dp"
-        android:fontFamily="@font/eloquia_bold"
-        android:text="La tua attività"
-        android:textColor="@color/blue"
-        android:textStyle="bold"
-        android:textSize="29sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/titolo"
-        android:layout_alignBottom="@+id/titolo"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="30dp"
-        android:text="00:00"
-        android:textSize="25sp"
-        android:textAlignment="center" />
-
-<!--  Se vuoi aggiungere uno sfondo tipo card potresti usare questo  -->
-<!--    android:background="@drawable/rounded_background"-->
     <LinearLayout
-        android:id="@+id/statsDisplay"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button"
-        android:layout_below="@+id/tipDisplay"
-
-        android:layout_marginTop="40dp"
-        android:layout_marginHorizontal="30dp"
-        android:orientation="vertical"
-        android:paddingVertical="30dp">
-
+        android:layout_height="match_parent"
+        android:orientation="vertical">
         <LinearLayout
-            android:id="@+id/fila0"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/titolo"
             android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/titolo"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/eloquia_bold"
+                android:text="La tua attività"
+                android:textColor="@color/blue"
+                android:textStyle="bold"
+                android:textSize="29sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Calorie"
-                    android:textAlignment="center"
-                    android:textColor="@color/blue"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:textAlignment="center"
+                android:fontFamily="@font/eloquia_bold"
+                android:text="00:00"
+                android:textSize="28sp" />
 
-                <TextView
-                    android:id="@+id/calrCt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="0 kCal"
-                    android:textAlignment="center"
-                    android:textSize="30sp" />
-            </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/fila1"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/fila0"
-            android:orientation="horizontal">
-
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp"
+            app:cardMaxElevation="12dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toTopOf="parent">
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:paddingHorizontal="20dp"
+                android:orientation="vertical"
+                android:paddingVertical="30dp">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Velocità"
-                    android:textAlignment="center"
-                    android:textColor="@color/blue"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/veloCt"
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Velocità"
+                            android:textAlignment="center"
+                            android:textColor="@color/blue"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="0 km/h"
+                            android:textAlignment="center"
+                            android:textSize="27sp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Accelerazione"
+                            android:textAlignment="center"
+                            android:textColor="@color/blue"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/accelerazione"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="0 m/s2"
+                            android:textAlignment="center"
+                            android:textSize="27sp" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="0 km/h"
-                    android:textAlignment="center"
-                    android:textSize="30sp" />
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Calorie consumate"
+                        android:textAlignment="center"
+                        android:textColor="@color/blue"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/acceCt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="0 kCal"
+                        android:textAlignment="center"
+                        android:textSize="27sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Distanza"
+                            android:textAlignment="center"
+                            android:textColor="@color/blue"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="0 m"
+                            android:textAlignment="center"
+                            android:textSize="27sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Forza"
+                            android:textAlignment="center"
+                            android:textColor="@color/blue"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="0 N"
+                            android:textAlignment="center"
+                            android:textSize="27sp" />
+                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Accelerazione"
-                    android:textAlignment="center"
-                    android:textColor="@color/blue"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/acceCt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="0 m/s"
-                    android:textAlignment="center"
-                    android:textSize="30sp" />
-            </LinearLayout>
-        </LinearLayout>
+        <com.example.testapp.TipView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="30dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/fila1"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="bottom|center"
+            android:layout_marginBottom="32dp"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/button"
+                android:layout_width="340dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Distanza"
-                    android:textAlignment="center"
-                    android:textColor="@color/blue"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/distCt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="0 metri"
-                    android:textAlignment="center"
-                    android:textSize="30sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Forza"
-                    android:textAlignment="center"
-                    android:textColor="@color/blue"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/forzCt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="0 N"
-                    android:textAlignment="center"
-                    android:textSize="30sp" />
-            </LinearLayout>
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_background"
+                android:text="Inizia allenemento"
+                android:textColor="@color/cold_white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginHorizontal="30dp"
-        android:background="@drawable/button_background"
-        android:text="Termina allenemento"
-        android:layout_marginVertical="50dp"
-        android:textColor="@color/cold_white"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-
-    <com.example.testapp.TipView
-        android:id="@+id/tipDisplay"
-        android:paddingHorizontal="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/titolo"
-        />
-
-</RelativeLayout>
+</FrameLayout>
