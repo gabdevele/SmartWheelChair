@@ -11,10 +11,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
-import android.text.SpannableStringBuilder;
-import android.text.Spanned;
-import android.text.style.SuperscriptSpan;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +23,6 @@ public class ActivityFragment extends Fragment {
 
     private Button startButton;
     private ArduinoBluetooth arduinoBluetooth;
-    private Intent enableBtIntent;
     private Handler handler;
     private boolean errorReadingData = false;
     private final int delay = 1000;
@@ -60,7 +55,7 @@ public class ActivityFragment extends Fragment {
             if(!errorReadingData){
                 try {
                     velocity = arduinoBluetooth.readData();
-                    velocityTextView.setText(velocity + " m/s");
+                    velocityTextView.setText(String.format("%s", velocity));
                     handler.postDelayed(readActivity, delay);
                 } catch (Exception e) {
                     errorReadingData = true;
@@ -87,7 +82,7 @@ public class ActivityFragment extends Fragment {
         arduinoBluetooth = new ArduinoBluetooth(getContext());
         handler = new Handler();
         startButton = view.findViewById(R.id.button);
-        velocityTextView = view.findViewById(R.id.velocita);
+        velocityTextView = view.findViewById(R.id.veloV);
         startButton.setOnClickListener(v -> handler.post(startActivity));
     }
 
@@ -104,7 +99,7 @@ public class ActivityFragment extends Fragment {
     }
 
     public void enableBluetooth(){
-        enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+        Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
         startActivityForResult(enableBtIntent, arduinoBluetooth.REQUEST_ENABLE_BT);
     }
 

@@ -3,19 +3,19 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:title="Home"
+        android:title="@string/title_home"
         android:icon="@drawable/round_home_24"
 
         />
     <item
         android:id="@+id/navigation_activity"
-        android:title="Attività"
+        android:title="@string/title_activity_nav"
         android:icon="@drawable/round_directions_run_24"
 
         />
     <item
         android:id="@+id/navigation_settings"
-        android:title="Impostazioni"
+        android:title="@string/title_settings"
         android:icon="@drawable/round_settings_24"
         />
 

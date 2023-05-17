@@ -1,24 +1,23 @@
 package com.example.testapp;
 
 
-import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Context;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 
 
 public class ArduinoBluetooth {
     final int REQUEST_ENABLE_BT = 1;
     private BluetoothAdapter bluetoothAdapter;
-    private BluetoothDevice hc05;
     private BluetoothSocket socket;
     private InputStream inputStream;
     public boolean permissionGranted;
-    Context context;
+    final Context context;
     private static final UUID SERVICE_ID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"); //SPP UUID
     private static final String ADDRESS = "98:D3:31:F5:2E:C7"; // HC-05 BT ADDRESS
 
@@ -33,7 +32,7 @@ public class ArduinoBluetooth {
     }
 
     public void connectToArduino() throws Exception {
-        hc05 = bluetoothAdapter.getRemoteDevice(ADDRESS);
+        BluetoothDevice hc05 = bluetoothAdapter.getRemoteDevice(ADDRESS);
         try {
             if (!Utilities.checkPermission(context, android.Manifest.permission.BLUETOOTH_CONNECT)) {
                 throw new Exception("Permessi non concessi");
@@ -51,7 +50,7 @@ public class ArduinoBluetooth {
             if(socket.isConnected())
                 socket.close();
         } catch (IOException e){
-
+            e.printStackTrace();
         }
     }
 
@@ -69,7 +68,7 @@ public class ArduinoBluetooth {
                     if(b == delimiter){
                         byte[] encodedBytes = new byte[readBufferPosition];
                         System.arraycopy(readBuffer, 0, encodedBytes, 0, encodedBytes.length);
-                        String data = new String(encodedBytes, "US-ASCII");
+                        String data = new String(encodedBytes, StandardCharsets.US_ASCII);
                         readBufferPosition = 0;
                         if(data.length() > 2)
                             try{

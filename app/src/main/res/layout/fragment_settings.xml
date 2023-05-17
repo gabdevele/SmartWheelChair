@@ -1,146 +1,138 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingsFragment">
+    tools:context=".SettingsFragment"
+    android:orientation="vertical"
+    android:paddingHorizontal="25dp">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/eloquia_bold"
+        android:text="@string/title_settings"
+        android:textColor="@color/blue"
+        android:textSize="29sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/setting_generali"
+        android:textSize="25sp"
+        android:fontFamily="@font/eloquia_bold"
+        android:textColor="@color/disabled"/>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingHorizontal="25dp"
+        android:layout_height="wrap_content"
+        android:paddingVertical="10dp"
+        android:orientation="horizontal">
 
-        android:orientation="vertical">
         <TextView
-            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:fontFamily="@font/eloquia_bold"
-            android:text="Impostazioni"
-            android:textColor="@color/blue"
-            android:textSize="29sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
+            android:fontFamily="@font/eloquia_light"
+            android:text="@string/setting_peso"
+            android:textSize="17sp" />
+        <EditText
+            android:id="@+id/pesoInput"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Generali"
-            android:textSize="25dp"
-            android:fontFamily="@font/eloquia_bold"
-            android:textColor="@color/disabled"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingVertical="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/eloquia_light"
-                android:text="Imposta il tuo peso (kg) "
-                android:textSize="17dp" />
-            <EditText
-                android:id="@+id/pesoInput"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:hint="Peso in kg"
-                android:maxLength="5"
-                android:layout_weight="1"
-                android:textAlignment="textEnd"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingVertical="15dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="179dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/eloquia_light"
-                android:text="Imposta il tuo tema preferito"
-                android:textSize="17dp" />
-            <Spinner
-                android:id="@+id/temaSpinner"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:textAlignment="textEnd" />
-        </LinearLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Unità di misura"
-            android:textSize="25dp"
-            android:fontFamily="@font/eloquia_bold"
-            android:textColor="@color/disabled"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingVertical="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="177dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/eloquia_light"
-                android:text="Imposta l'unita di misura che preferisci per le calorie"
-                android:textSize="17dp" />
-
-            <Spinner
-                android:id="@+id/calorieSpinner"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:textAlignment="textEnd"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingVertical="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="177dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/eloquia_light"
-                android:text="Imposta l'unita di misura che preferisci per la velocità"
-                android:textSize="17dp" />
-            <Spinner
-                android:id="@+id/velocitaSpinner"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:textAlignment="textEnd" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingVertical="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="178dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/eloquia_light"
-                android:text="Imposta l'unita di misura che preferisci per la distanza"
-                android:textSize="17dp" />
-            <Spinner
-                android:id="@+id/distanzaSpinner"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:textAlignment="textEnd" />
-        </LinearLayout>
-
-
-
+            android:inputType="numberDecimal"
+            android:hint="@string/setting_hint_peso"
+            android:maxLength="5"
+            android:layout_weight="1"
+            android:textAlignment="textEnd"
+            android:importantForAutofill="no" />
     </LinearLayout>
-</FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="15dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="179dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/eloquia_light"
+            android:text="@string/setting_tema"
+            android:textSize="17sp" />
+        <Spinner
+            android:id="@+id/temaSpinner"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textAlignment="textEnd" />
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/setting_unit_di_misura"
+        android:textSize="25sp"
+        android:fontFamily="@font/eloquia_bold"
+        android:textColor="@color/disabled"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="177dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/eloquia_light"
+            android:text="@string/setting_calorie"
+            android:textSize="17sp" />
+
+        <Spinner
+            android:id="@+id/calorieSpinner"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textAlignment="textEnd"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="177dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/eloquia_light"
+            android:text="@string/setting_velocita"
+            android:textSize="17sp" />
+        <Spinner
+            android:id="@+id/velocitaSpinner"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textAlignment="textEnd" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="178dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/eloquia_light"
+            android:text="@string/setting_distanza"
+            android:textSize="17sp" />
+        <Spinner
+            android:id="@+id/distanzaSpinner"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textAlignment="textEnd" />
+    </LinearLayout>
+</LinearLayout>

@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
     PieChart pieChart;
-    int[] colors = new int[]{R.color.blue3, R.color.cold_white};
+    final int[] colors = new int[]{R.color.blue3, R.color.cold_white};
     public HomeFragment() {
         // Required empty public constructor
     }

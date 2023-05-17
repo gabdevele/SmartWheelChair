@@ -25,6 +25,6 @@ public class TipView extends LinearLayout {
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.view_tip, this);
         TextView tipTextView = findViewById(R.id.tip_textview);
-        tipTextView.setText(Utilities.randomTips());
+        tipTextView.setText(Utilities.randomTips(getContext()));
     }
 }

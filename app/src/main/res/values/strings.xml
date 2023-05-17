@@ -1,3 +1,51 @@
 <resources>
     <string name="app_name">Smart WheelChair</string>
+    <!--  Activity page -->
+    <string name="title_activity_nav">Attività</string>
+    <string name="title_activity">La tua attività</string>
+    <string name="placeholder_not_started">00:00</string>
+    <string name="unita_newton">N</string>
+    <string name="placeholder_zero">0</string>
+    <string name="nome_forza">Forza</string>
+    <string name="nome_calorie">Calorie consumate</string>
+    <string name="nome_distanza">Distanza</string>
+    <string name="nome_accelerazione">Accelerazione</string>
+    <string name="nome_velocita">Velocità</string>
+    <string name="unita_kcal">kCal</string>
+    <string name="unita_metri">m</string>
+    <string name="unita_accelerazione">m/s</string>
+    <string name="due_esponente">2</string>
+    <string name="unita_velocita">m/s</string>
+    <string name="inizia_allenemento">Inizia allenemento</string>
+    <!--  TipView -->
+    <string name="suggerimento">Suggerimento</string>
+    <string-array name="suggerimenti">
+        <item>Assicurati di impostare correttamente il tuo peso nell\'app per ottenere una stima accurata delle calorie bruciate.</item>
+        <item>Mantieni una postura corretta sulla sedia a rotelle per massimizzare il numero di calorie bruciate durante l\'attività fisica.</item>
+        <item>Se possibile, programma le tue attività fisiche in luoghi sicuri e ben illuminati per garantire la tua sicurezza.</item>
+        <item>Ricorda di bere molta acqua durante l\'esercizio fisico per evitare la disidratazione.</item>
+        <item>Prova ad aumentare gradualmente la durata e l\'intensità delle tue attività fisiche per evitare lesioni o fatiche eccessive.</item>
+        <item>Usa l\'app per monitorare la tua attività fisica nel tempo e impostare obiettivi realistici per te stesso.</item>
+        <item>Se hai bisogno di aiuto o supporto, non esitare a contattare un professionista sanitario o un allenatore qualificato.</item>
+        <item>Ricorda di fare sempre un riscaldamento adeguato prima di iniziare l\'esercizio fisico per evitare lesioni.</item>
+        <item>Se noti sintomi di affaticamento eccessivo o dolore, interrompi l\'esercizio fisico e contatta un professionista sanitario.</item>
+    </string-array>
+
+    <!--  Settings page -->
+    <string name="title_settings">Impostazioni</string>
+    <string name="setting_generali">Generali</string>
+    <string name="setting_peso">Imposta il tuo peso (kg)</string>
+    <string name="setting_hint_peso">Peso in kg</string>
+    <string name="setting_tema">Imposta il tuo tema preferito</string>
+    <string name="setting_unit_di_misura">Unità di misura</string>
+    <string name="setting_distanza">Imposta l\'unita di misura che preferisci per la distanza</string>
+    <string name="setting_velocita">Imposta l\'unita di misura che preferisci per la velocità</string>
+    <string name="setting_calorie">Imposta l\'unita di misura che preferisci per le calorie</string>
+    <!--  Home page  -->
+    <string name="title_home">Home</string>
+    <string name="obiettivo_giornaliero">Obiettivo giornaliero</string>
+    <string name="title_raccomandazioni">Raccomandazioni</string>
+    <string name="title_informazioni">Informazioni</string>
+    <string name="info_spam">Premi per scoprire altro sul progetto e su questa applicazione.</string>
+    <string name="vai_alle_attivit">Vai alle attività</string>
 </resources>
