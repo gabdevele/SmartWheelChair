@@ -1,5 +1,7 @@
-package com.example.testapp.fragments;
+package com.example.testapp.Fragments.Welcome;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,7 +15,7 @@ import android.view.ViewGroup;
 
 import com.example.testapp.R;
 
-public class welcome_screen extends Fragment {
+public class WelcomeScreen extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -24,9 +26,13 @@ public class welcome_screen extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        SharedPreferences sharedPreferences  = getContext().getSharedPreferences("Settings", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("new_start", false);
+        editor.apply();
         view.findViewById(R.id.next).setOnClickListener(v -> {
             FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragments, new welcome_permessi());
+            transaction.replace(R.id.fragments, new WelcomePermessi());
             transaction.addToBackStack(null);
             transaction.commit();
         });

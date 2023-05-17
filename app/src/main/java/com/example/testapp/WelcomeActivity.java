@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 
-import com.example.testapp.fragments.welcome_screen;
+import com.example.testapp.Fragments.Welcome.WelcomeScreen;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -13,7 +13,7 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
-        setFragment(new welcome_screen());
+        setFragment(new WelcomeScreen());
     }
     private void setFragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragments, fragment).commit();

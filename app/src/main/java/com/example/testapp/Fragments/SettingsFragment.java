@@ -1,4 +1,4 @@
-package com.example.testapp;
+package com.example.testapp.Fragments;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -16,6 +16,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+
+import com.example.testapp.R;
 
 import java.util.Arrays;
 

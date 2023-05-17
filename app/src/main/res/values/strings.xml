@@ -17,6 +17,7 @@
     <string name="due_esponente">2</string>
     <string name="unita_velocita">m/s</string>
     <string name="inizia_allenemento">Inizia allenemento</string>
+    <string name="termina_allenamento">Termina allenamento</string>
     <!--  TipView -->
     <string name="suggerimento">Suggerimento</string>
     <string-array name="suggerimenti">

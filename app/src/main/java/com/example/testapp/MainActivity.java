@@ -7,7 +7,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Toast;
 
+import com.example.testapp.Fragments.ActivityFragment;
+import com.example.testapp.Fragments.HomeFragment;
+import com.example.testapp.Fragments.SettingsFragment;
 import com.example.testapp.databinding.ActivityMainBinding;
 
 
