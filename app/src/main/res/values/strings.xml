@@ -48,4 +48,8 @@
     <string name="title_informazioni">Informazioni</string>
     <string name="info_spam">Premi per scoprire altro sul progetto e su questa applicazione.</string>
     <string name="vai_alle_attivit">Vai alle attività</string>
+
+    <string name="next">Avanti</string>
+    <string name="welcome_text">Il nostro obiettivo è aiutarti a monitorare la tua attività fisica</string>
+    <string name="benvenuto">Benvenuto</string>
 </resources>
