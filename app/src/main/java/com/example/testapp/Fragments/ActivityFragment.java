@@ -23,7 +23,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.testapp.MainActivity;
 import com.example.testapp.R;
 import com.example.testapp.Threads.ArduinoConnectBluetooth;
 import com.example.testapp.Threads.ArduinoReadBluetooth;
@@ -118,7 +117,6 @@ public class ActivityFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -126,12 +124,20 @@ public class ActivityFragment extends Fragment {
         velocityTextView = view.findViewById(R.id.veloV);
         readHandler = new Handler(Looper.getMainLooper());
         startButton.setOnClickListener(startActivity);
+
+        loadUnita(view.findViewById(R.id.caloU), "calorie", R.string.unita_kcal);
+        loadUnita(view.findViewById(R.id.veloU), "velocita", R.string.unita_velocita);
+        loadUnita(view.findViewById(R.id.distU), "distanza", R.string.unita_metri);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_activity, container, false);
+    }
+
+    private void loadUnita(TextView view, String id, int defaultId) {
+        view.setText(Utilities.getPreference(getContext(), id, getString(defaultId)));
     }
 
     public void enableBluetooth(){
@@ -152,12 +158,11 @@ public class ActivityFragment extends Fragment {
             }
         }
     }
+    // TODO: Spostare in Utilities.java ; credo?
     private ActivityResultLauncher<String> requestPermissionLauncher = registerForActivityResult(
             new ActivityResultContracts.RequestPermission(),
             result -> {
-                if (result) {
-                    // PERMISSION GRANTED
-                } else {
+                if (!result) {
                     Toast.makeText(getContext(), "Permessi necessari!", Toast.LENGTH_SHORT);
                 }
                 Log.d("prova",""+result);

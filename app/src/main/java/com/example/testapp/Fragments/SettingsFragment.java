@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -98,10 +97,10 @@ public class SettingsFragment extends Fragment {
         pesoInput.addTextChangedListener(makeWatcher("peso"));
         pesoInput.setText(String.valueOf(peso));
 
-        setupSpinner(new String[]{"Normale"}, "tema", view.findViewById(R.id.temaSpinner));
-        setupSpinner(new String[]{"kCal", "cal"}, "calorie", view.findViewById(R.id.calorieSpinner));
-        setupSpinner(new String[]{"km/h", "m/s"}, "velocita", view.findViewById(R.id.velocitaSpinner));
-        setupSpinner(new String[]{"km", "m"}, "distanza", view.findViewById(R.id.distanzaSpinner));
+        setupSpinner(new String[]{getString(R.string.tema_normale)}, "tema", view.findViewById(R.id.temaSpinner));
+        setupSpinner(new String[]{getString(R.string.unita_kcal), getString(R.string.unita_calorie)}, "calorie", view.findViewById(R.id.calorieSpinner));
+        setupSpinner(new String[]{getString(R.string.unita_kmorari), getString(R.string.unita_velocita)}, "velocita", view.findViewById(R.id.velocitaSpinner));
+        setupSpinner(new String[]{getString(R.string.unita_km), getString(R.string.unita_metri)}, "distanza", view.findViewById(R.id.distanzaSpinner));
 
         return view;
     }

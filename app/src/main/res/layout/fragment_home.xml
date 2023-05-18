@@ -102,11 +102,10 @@
 
                 <ImageView
                     android:id="@+id/imageView"
-                    android:layout_width="140dp"
-                    android:layout_height="140dp"
+                    android:layout_width="124dp"
+                    android:layout_height="124dp"
                     android:contentDescription="@string/app_name"
-                    app:srcCompat="@drawable/ic_launcher_foreground"
-                    />
+                    app:srcCompat="@drawable/ic_launcher_foreground" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

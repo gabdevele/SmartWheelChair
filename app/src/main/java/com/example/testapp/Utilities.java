@@ -44,4 +44,9 @@ public class Utilities {
         editor.putFloat(key, value);
         editor.apply();
     }
+
+    public static String getPreference(Context context, String key, String def) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("Settings", Context.MODE_PRIVATE);
+        return sharedPreferences.getString(key, def);
+    }
 }
