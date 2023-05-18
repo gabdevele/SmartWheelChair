@@ -53,4 +53,11 @@
     <string name="next">Avanti</string>
     <string name="welcome_text">Il nostro obiettivo è aiutarti a monitorare la tua attività fisica</string>
     <string name="benvenuto">Benvenuto</string>
+    <string name="perms_text">Abbiamo bisogno di alcuni permessi prima di iniziare</string>
+    <string name="title_perms">Innanzitutto</string>
+    <string name="concedi">Concedi</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_peso">Abbiamo quasi finito</string>
+    <string name="peso_text">Ci serve solo il tuo peso per i nostri calcoli</string>
 </resources>

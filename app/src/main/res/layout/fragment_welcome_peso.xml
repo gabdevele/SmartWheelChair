@@ -12,29 +12,42 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/title_perms"
+        android:text="@string/title_peso"
         android:textColor="@color/white"
         android:textSize="60sp"
         android:textStyle="bold"
+        android:lineSpacingExtra="-15sp"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
         android:textColor="@color/white"
-        android:layout_marginTop="-20dp"
+        android:layout_marginTop="-15dp"
         android:textSize="30sp"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:maxWidth="900dp"
-        android:text="@string/perms_text"
+        android:text="@string/peso_text"
         android:textColor="@color/white"
         android:layout_marginTop="30dp"
         android:textSize="50sp"
         android:lineSpacingExtra="-5sp"
         />
+
+    <EditText
+        android:id="@+id/pesoInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:hint="@string/setting_hint_peso"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:maxLength="5"
+        android:importantForAutofill="no" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -44,10 +57,10 @@
         >
 
         <Button
-            android:id="@+id/concedi"
+            android:id="@+id/chiudi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/concedi"
+            android:text="@string/next"
             android:textColor="@color/blue2"
             android:background="@drawable/button_background_2"
             />

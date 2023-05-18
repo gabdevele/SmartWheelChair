@@ -1,6 +1,7 @@
 package com.example.testapp;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.view.View;
 import android.widget.TextView;
@@ -24,5 +25,23 @@ public class Utilities {
         TextView forceTextView = view.findViewById(R.id.forzV);
         TextView caloriesTextView = view.findViewById(R.id.caloV);
         velocityTextView.setText(String.valueOf(velocity));
+    }
+    public static void setPreference(Context context, String key, Boolean value) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("Settings", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(key, value);
+        editor.apply();
+    }
+    public static void setPreference(Context context, String key, String value) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("Settings", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(key, value);
+        editor.apply();
+    }
+    public static void setPreference(Context context, String key, Float value) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("Settings", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putFloat(key, value);
+        editor.apply();
     }
 }
