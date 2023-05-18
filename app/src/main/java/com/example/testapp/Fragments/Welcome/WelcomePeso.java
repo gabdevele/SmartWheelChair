@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +32,10 @@ public class WelcomePeso extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         view.findViewById(R.id.chiudi).setOnClickListener(l -> {
-            Utilities.setPreference(getContext(), "peso", Float.parseFloat(""+((EditText) view.findViewById(R.id.pesoInput)).getText()));
+            String peso = ""+((EditText) view.findViewById(R.id.pesoInput)).getText();
+            if (peso.length() != 0) {
+                Utilities.setPreference(getContext(), "peso", Float.parseFloat(peso));
+            }
             Utilities.setPreference(getContext(), "new_start", false);
             startActivity(new Intent(getContext(), MainActivity.class));
         });

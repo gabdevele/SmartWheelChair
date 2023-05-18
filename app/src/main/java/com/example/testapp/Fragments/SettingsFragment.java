@@ -18,14 +18,13 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.testapp.R;
+import com.example.testapp.Utilities;
 
 import java.util.Arrays;
 
 
 public class SettingsFragment extends Fragment {
-
     private SharedPreferences sharedPreferences;
-
 
     public SettingsFragment() {
         // Required empty public constructor
@@ -37,19 +36,11 @@ public class SettingsFragment extends Fragment {
         sharedPreferences = getContext().getSharedPreferences("Settings", Context.MODE_PRIVATE);
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_settings, container, false);
-
-        EditText pesoInput = view.findViewById(R.id.pesoInput);
-        Spinner temaSpinner = view.findViewById(R.id.temaSpinner);
-        Spinner calorieSpinner = view.findViewById(R.id.calorieSpinner);
-        Spinner velocitaSpinner = view.findViewById(R.id.velocitaSpinner);
-        Spinner distanzaSpinner = view.findViewById(R.id.distanzaSpinner);
-
-        float peso = sharedPreferences.getFloat("peso", 0);
-        pesoInput.addTextChangedListener(new TextWatcher() {
+    /**
+     * Crea un nuovo watcher per le impostazioni
+     */
+    private TextWatcher makeWatcher(String id) {
+        return new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -63,85 +54,54 @@ public class SettingsFragment extends Fragment {
             @Override
             public void afterTextChanged(Editable s) {
                 if(!s.toString().isEmpty()){
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putFloat("peso", Float.parseFloat(s.toString()));
-                    editor.apply();
+                    Utilities.setPreference(getContext(), id, Float.parseFloat(s.toString()));
                 }
             }
-        });
-        pesoInput.setText(String.valueOf(peso));
+        };
+    }
+    /**
+     * Crea un nuovo listener per le impostazioni
+     */
+    private AdapterView.OnItemSelectedListener makeSelectedListener(String id, String[] impostazioni) {
+        return new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Utilities.setPreference(getContext(), id, impostazioni[(int)l]);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                // Questo serve per forza anche se vuoto
+            }
+        };
+    }
+    /**
+     * Imposta lo spinner con i dati, così da occupare meno spazio
+     */
+    private void setupSpinner(String[] unita, String id, Spinner spinner) {
+        String calorie = sharedPreferences.getString(id, unita[0]);
 
         ArrayAdapter<CharSequence> adapter = new ArrayAdapter<>(getActivity(),
-                android.R.layout.simple_spinner_item, new String[]{"Normale"});
+                android.R.layout.simple_spinner_item, unita);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        temaSpinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(makeSelectedListener(id, unita));
+        spinner.setAdapter(adapter);
+        spinner.setSelection(Arrays.asList(unita).indexOf(calorie));
+    }
 
-        //calorie
-        String[] unitaCalorie = {"kCal", "cal"};
-        String calorie = sharedPreferences.getString("calorie", unitaCalorie[0]);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_settings, container, false);
 
-        ArrayAdapter<CharSequence> calorieAdapter = new ArrayAdapter<>(getActivity(),
-                android.R.layout.simple_spinner_item, unitaCalorie);
-        calorieAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        calorieSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("calorie", unitaCalorie[(int)l]);
-                editor.apply();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-                // Questo serve per forza anche se vuoto
-            }
-        });
-        calorieSpinner.setAdapter(calorieAdapter);
-        calorieSpinner.setSelection(Arrays.asList(unitaCalorie).indexOf(calorie));
+        EditText pesoInput = view.findViewById(R.id.pesoInput);
+        float peso = sharedPreferences.getFloat("peso", 0);
+        pesoInput.addTextChangedListener(makeWatcher("peso"));
+        pesoInput.setText(String.valueOf(peso));
 
-        // velocita
-        String[] unitaVelocita = {"km/h", "m/s"};
-        String velocita = sharedPreferences.getString("velocita", unitaVelocita[0]);
-        ArrayAdapter<CharSequence> velocitaAdapter = new ArrayAdapter<>(getActivity(),
-                android.R.layout.simple_spinner_item, unitaVelocita);
-        velocitaAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        velocitaSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("velocita", unitaVelocita[(int)l]);
-                editor.apply();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-                // Questo serve per forza anche se vuoto
-            }
-        });
-        velocitaSpinner.setAdapter(velocitaAdapter);
-        velocitaSpinner.setSelection(Arrays.asList(unitaVelocita).indexOf(velocita));
-
-        // distanza
-        String[] unitaDistanza = {"km", "m"};
-        String distanza = sharedPreferences.getString("distanza", unitaDistanza[0]);
-
-        Log.println(Log.INFO, "CIao", ""+Arrays.asList(unitaDistanza).indexOf(distanza));
-
-        ArrayAdapter<CharSequence> distanzaAdapter = new ArrayAdapter<>(getActivity(),
-                android.R.layout.simple_spinner_item, unitaDistanza);
-        distanzaAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        distanzaSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("distanza", unitaDistanza[(int)l]);
-                editor.apply();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-                // Questo serve per forza anche se vuoto
-            }
-        });
-        distanzaSpinner.setAdapter(distanzaAdapter);
-        distanzaSpinner.setSelection(Arrays.asList(unitaDistanza).indexOf(distanza));
+        setupSpinner(new String[]{"Normale"}, "tema", view.findViewById(R.id.temaSpinner));
+        setupSpinner(new String[]{"kCal", "cal"}, "calorie", view.findViewById(R.id.calorieSpinner));
+        setupSpinner(new String[]{"km/h", "m/s"}, "velocita", view.findViewById(R.id.velocitaSpinner));
+        setupSpinner(new String[]{"km", "m"}, "distanza", view.findViewById(R.id.distanzaSpinner));
 
         return view;
     }
