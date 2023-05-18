@@ -1,17 +1,21 @@
 package com.example.testapp.Fragments;
 
+import android.Manifest;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +23,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.testapp.MainActivity;
 import com.example.testapp.R;
 import com.example.testapp.Threads.ArduinoConnectBluetooth;
 import com.example.testapp.Threads.ArduinoReadBluetooth;
@@ -45,8 +50,10 @@ public class ActivityFragment extends Fragment {
     private InputStream inputStream;
     public ActivityFragment() {
         startActivity = (v -> {
-            //TODO check if bluetooth is enabled
-
+            if(!Utilities.checkPermission(getContext(), Manifest.permission.BLUETOOTH_CONNECT)){
+                requestPermissionLauncher.launch(Manifest.permission.BLUETOOTH_CONNECT);
+                return;
+            }
             getActivity().runOnUiThread(
                     () -> Toast.makeText(getContext(), "Connessione in corso...", Toast.LENGTH_SHORT).show()
             );
@@ -145,5 +152,16 @@ public class ActivityFragment extends Fragment {
             }
         }
     }
+    private ActivityResultLauncher<String> requestPermissionLauncher = registerForActivityResult(
+            new ActivityResultContracts.RequestPermission(),
+            result -> {
+                if (result) {
+                    // PERMISSION GRANTED
+                } else {
+                    Toast.makeText(getContext(), "Permessi necessari!", Toast.LENGTH_SHORT);
+                }
+                Log.d("prova",""+result);
+            }
+    );
 
 }
