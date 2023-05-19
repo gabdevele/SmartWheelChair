@@ -53,6 +53,12 @@ public class HomeFragment extends Fragment {
         PieData pieData = new PieData(pieDataSet);
         pieChart.setData(pieData);
         pieChart.invalidate();
+
+        view.findViewById(R.id.go_activity).setOnClickListener(v -> {
+            getParentFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, new ActivityFragment())
+                    .commit();
+        });
     }
 
     private ArrayList<PieEntry> dataValues(){
