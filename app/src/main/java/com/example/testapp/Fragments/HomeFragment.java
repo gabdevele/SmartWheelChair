@@ -54,10 +54,10 @@ public class HomeFragment extends Fragment {
         pieChart.setData(pieData);
         pieChart.invalidate();
 
-        view.findViewById(R.id.go_activity).setOnClickListener(v -> {
-            getParentFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, new ActivityFragment())
-                    .commit();
+        view.findViewById(R.id.go_activity).setOnClickListener(v -> getParentFragmentManager().beginTransaction().replace(R.id.fragment_container, new ActivityFragment()).commit());
+        // TODO: cambiare fragment con quello giusto quando vengono premuti info e raccomandazioni (vedi su WA)
+        view.findViewById(R.id.info_continue).setOnClickListener(l -> {
+//            startActivity(new Intent(getContext(), ActivityFragment.class));
         });
     }
 

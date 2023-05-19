@@ -266,7 +266,7 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <com.example.testapp.TipView
+        <com.example.testapp.CustomStuff.TipView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
