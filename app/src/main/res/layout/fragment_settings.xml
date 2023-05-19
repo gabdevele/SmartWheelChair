@@ -80,7 +80,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="10dp"
+        android:layout_marginVertical="10dp"
+        android:gravity="center|start"
         android:orientation="horizontal">
 
         <TextView
@@ -92,15 +93,15 @@
 
         <Spinner
             android:id="@+id/calorieSpinner"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:textAlignment="textEnd"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="10dp"
+        android:layout_marginVertical="10dp"
+        android:gravity="center|start"
         android:orientation="horizontal">
 
         <TextView
@@ -111,28 +112,27 @@
             android:textSize="17sp" />
         <Spinner
             android:id="@+id/velocitaSpinner"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:textAlignment="textEnd" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="10dp"
+        android:layout_marginVertical="10dp"
+        android:gravity="center|start"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="178dp"
+            android:layout_width="177dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/eloquia_light"
             android:text="@string/setting_distanza"
             android:textSize="17sp" />
         <Spinner
             android:id="@+id/distanzaSpinner"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:textAlignment="textEnd" />
     </LinearLayout>
 </LinearLayout>
