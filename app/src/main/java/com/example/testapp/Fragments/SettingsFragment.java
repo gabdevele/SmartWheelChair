@@ -1,9 +1,8 @@
 package com.example.testapp.Fragments;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 
 import android.text.Editable;
@@ -20,20 +19,16 @@ import com.example.testapp.R;
 import com.example.testapp.Utilities;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 
 public class SettingsFragment extends Fragment {
-    private SharedPreferences sharedPreferences;
-
     public SettingsFragment() {
         // Required empty public constructor
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        sharedPreferences = getContext().getSharedPreferences("Settings", Context.MODE_PRIVATE);
-    }
+    public void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); }
 
     /**
      * Crea un nuovo watcher per le impostazioni
@@ -77,7 +72,7 @@ public class SettingsFragment extends Fragment {
      * Imposta lo spinner con i dati, così da occupare meno spazio
      */
     private void setupSpinner(String[] unita, String id, Spinner spinner) {
-        String calorie = sharedPreferences.getString(id, unita[0]);
+        String calorie = Utilities.getPreference(getContext(), id, unita[0]);
 
         ArrayAdapter<CharSequence> adapter = new ArrayAdapter<>(getActivity(),
                 android.R.layout.simple_spinner_item, unita);
@@ -93,7 +88,7 @@ public class SettingsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
 
         EditText pesoInput = view.findViewById(R.id.pesoInput);
-        float peso = sharedPreferences.getFloat("peso", 0);
+        float peso = Utilities.getPreference(getContext(), "peso", 0f);
         pesoInput.addTextChangedListener(makeWatcher("peso"));
         pesoInput.setText(String.valueOf(peso));
 
@@ -102,6 +97,9 @@ public class SettingsFragment extends Fragment {
         setupSpinner(new String[]{getString(R.string.unita_kmorari), getString(R.string.unita_velocita)}, "velocita", view.findViewById(R.id.velocitaSpinner));
         setupSpinner(new String[]{getString(R.string.unita_km), getString(R.string.unita_metri)}, "distanza", view.findViewById(R.id.distanzaSpinner));
 
+        SwitchCompat macSwitch = view.findViewById(R.id.switch_mac);
+        macSwitch.setOnCheckedChangeListener((v, checked) -> Utilities.setPreference(getContext(), "mac", checked ? "98:D3:31:F5:2E:C7" : "00:18:E4:34:C7:1A"));
+        if (!Objects.equals(Utilities.getPreference(getContext(), "mac", "00:18:E4:34:C7:1A"), "00:18:E4:34:C7:1A")) macSwitch.toggle();
         return view;
     }
 }

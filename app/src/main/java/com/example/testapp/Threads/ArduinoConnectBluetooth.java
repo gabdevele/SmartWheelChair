@@ -18,6 +18,7 @@ public class ArduinoConnectBluetooth implements Runnable {
     private final AsyncResponse delegate;
     private final Handler handler;
     private static final UUID SERVICE_ID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
+    // TODO: Utilities.getPreference per prendere il mac address (serve il context)
     private static final String ADDRESS = "00:18:E4:34:C7:1A";
     private BluetoothSocket socket;
     private InputStream inputStream;

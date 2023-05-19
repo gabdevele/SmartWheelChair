@@ -62,4 +62,5 @@
     <string name="tema_normale">Normale</string>
     <string name="unita_kmorari">km/h</string>
     <string name="unita_km">km</string>
+    <string name="setting_mac">Cambia MAC Bluetooth\nNuovo / Vecchio</string>
 </resources>

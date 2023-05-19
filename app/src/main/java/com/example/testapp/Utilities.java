@@ -49,4 +49,8 @@ public class Utilities {
         SharedPreferences sharedPreferences = context.getSharedPreferences("Settings", Context.MODE_PRIVATE);
         return sharedPreferences.getString(key, def);
     }
+    public static Float getPreference(Context context, String key, Float def) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("Settings", Context.MODE_PRIVATE);
+        return sharedPreferences.getFloat(key, def);
+    }
 }
