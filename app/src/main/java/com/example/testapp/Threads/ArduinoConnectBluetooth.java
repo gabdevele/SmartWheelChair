@@ -16,10 +16,8 @@ import java.util.UUID;
 public class ArduinoConnectBluetooth implements Runnable {
     private Context context;
     private final AsyncResponse delegate;
-    private final Handler handler;
     private static final UUID SERVICE_ID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
-    // TODO: Utilities.getPreference per prendere il mac address (serve il context)
-    private static final String ADDRESS = "00:18:E4:34:C7:1A";
+    private static String ADDRESS;
     private BluetoothSocket socket;
     private InputStream inputStream;
 
@@ -30,7 +28,7 @@ public class ArduinoConnectBluetooth implements Runnable {
     public ArduinoConnectBluetooth(Context context, AsyncResponse delegate, Handler handler) {
         this.context = context;
         this.delegate = delegate;
-        this.handler = handler;
+        this.ADDRESS = Utilities.getPreference(context, "mac","00:18:E4:34:C7:1A");
     }
 
     private void connectToArduino() throws Exception {

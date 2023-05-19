@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="@string/title_perms"
         android:textColor="@color/white"
-        android:textSize="60sp"
+        android:textSize="50sp"
         android:textStyle="bold"
         />
     <TextView
@@ -32,7 +32,7 @@
         android:text="@string/perms_text"
         android:textColor="@color/white"
         android:layout_marginTop="30dp"
-        android:textSize="50sp"
+        android:textSize="40sp"
         android:lineSpacingExtra="-5sp"
         />
 

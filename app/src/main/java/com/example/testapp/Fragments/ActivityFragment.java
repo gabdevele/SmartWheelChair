@@ -38,9 +38,6 @@ public class ActivityFragment extends Fragment {
     private Button startButton;
     private boolean errorReadingData = false;
     private final int delay = 1000;
-    private final int REQUEST_ENABLE_BT = 1;
-    private TextView velocityTextView;
-    private double velocity;
     private Handler readHandler;
     private View.OnClickListener startActivity;
     private Runnable readActivity;
@@ -51,6 +48,11 @@ public class ActivityFragment extends Fragment {
         startActivity = (v -> {
             if(!Utilities.checkPermission(getContext(), Manifest.permission.BLUETOOTH_CONNECT)){
                 requestPermissionLauncher.launch(Manifest.permission.BLUETOOTH_CONNECT);
+                return;
+            }
+            if(!BluetoothAdapter.getDefaultAdapter().isEnabled()){
+                Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                requestEnableBluetoothLauncher.launch(enableBtIntent);
                 return;
             }
             getActivity().runOnUiThread(
@@ -121,7 +123,6 @@ public class ActivityFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         startButton = view.findViewById(R.id.button);
-        velocityTextView = view.findViewById(R.id.veloV);
         readHandler = new Handler(Looper.getMainLooper());
         startButton.setOnClickListener(startActivity);
 
@@ -140,32 +141,22 @@ public class ActivityFragment extends Fragment {
         view.setText(Utilities.getPreference(getContext(), id, getString(defaultId)));
     }
 
-    public void enableBluetooth(){
-        Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-        startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == REQUEST_ENABLE_BT) {
-            if(resultCode == Activity.RESULT_OK){
-                Toast.makeText(getContext(), "Bluetooth abilitato!", Toast.LENGTH_SHORT).show();
-            }
-            if (resultCode == Activity.RESULT_CANCELED) {
-                Toast.makeText(getContext(), "Bluetooth è necessario per il funzionamento!", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
-    // TODO: Spostare in Utilities.java ; credo?
     private ActivityResultLauncher<String> requestPermissionLauncher = registerForActivityResult(
             new ActivityResultContracts.RequestPermission(),
             result -> {
                 if (!result) {
                     Toast.makeText(getContext(), "Permessi necessari!", Toast.LENGTH_SHORT);
                 }
-                Log.d("prova",""+result);
+            }
+    );
+    private ActivityResultLauncher<Intent> requestEnableBluetoothLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == Activity.RESULT_OK) {
+                    Toast.makeText(getContext(), "Bluetooth abilitato!", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getContext(), "Bluetooth è necessario per il funzionamento!", Toast.LENGTH_SHORT).show();
+                }
             }
     );
 

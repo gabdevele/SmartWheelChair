@@ -53,4 +53,5 @@ public class Utilities {
         SharedPreferences sharedPreferences = context.getSharedPreferences("Settings", Context.MODE_PRIVATE);
         return sharedPreferences.getFloat(key, def);
     }
+
 }
