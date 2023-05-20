@@ -39,6 +39,7 @@ public class ActivityFragment extends Fragment {
     private BluetoothSocket bluetoothSocket;
     private InputStream inputStream;
     private Chronometer chronometer;
+    private Float peso;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +56,7 @@ public class ActivityFragment extends Fragment {
         loadUnit(view.findViewById(R.id.caloU), "calorie", R.string.unita_kcal);
         loadUnit(view.findViewById(R.id.veloU), "velocita", R.string.unita_velocita);
         loadUnit(view.findViewById(R.id.distU), "distanza", R.string.unita_metri);
+        peso = Utilities.getPreference(getContext(), "peso", 0f);
 
         return view;
     }
@@ -95,6 +97,7 @@ public class ActivityFragment extends Fragment {
             requestPermissionLauncher.launch(Manifest.permission.BLUETOOTH_CONNECT);
             return;
         }
+        // TODO: usare BluetoothManager.getAdapter() dato che questo è obsoleto?
         if (!BluetoothAdapter.getDefaultAdapter().isEnabled()) {
             Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             requestEnableBluetoothLauncher.launch(enableBtIntent);
@@ -142,7 +145,7 @@ public class ActivityFragment extends Fragment {
                         () -> {
                             BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.bottom_navigation);
                             bottomNavigationView.setOnItemSelectedListener(null);
-                            Utilities.setStatsValues(getContext(), getView(), v);
+                            Utilities.setStatsValues(getView(), v, peso);
                         }
                     );
                 }
