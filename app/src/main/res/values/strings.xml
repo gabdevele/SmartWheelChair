@@ -64,4 +64,9 @@
     <string name="unita_kmorari">km/h</string>
     <string name="unita_km">km</string>
     <string name="setting_mac">Cambia MAC Bluetooth\nNuovo / Vecchio</string>
+    <string name="connessione_in_corso">Connessione in corso...</string>
+    <string name="connessione_effettuata">Connessione effettuata!</string>
+    <string name="bluetooth_necessario">Bluetooth è necessario per il funzionamento!</string>
+    <string name="bluetooth_abilitato">Bluetooth abilitato!</string>
+    <string name="permessi_necessari">Permessi necessari!</string>
 </resources>

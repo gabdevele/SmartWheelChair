@@ -2,16 +2,16 @@ package com.example.testapp.Threads;
 
 import android.bluetooth.BluetoothSocket;
 import android.os.Handler;
-
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 
 public class ArduinoReadBluetooth implements Runnable{
 
     private final AsyncResponse delegate;
     private final Handler handler;
-    private BluetoothSocket socket;
-    private InputStream inputStream;
+    private final BluetoothSocket socket;
+    private final InputStream inputStream;
 
     public interface AsyncResponse{
         void processFinish(Double velocity, Exception e);
@@ -43,7 +43,7 @@ public class ArduinoReadBluetooth implements Runnable{
                     if(b == delimiter){
                         byte[] encodedBytes = new byte[readBufferPosition];
                         System.arraycopy(readBuffer, 0, encodedBytes, 0, encodedBytes.length);
-                        String data = new String(encodedBytes, "US-ASCII");
+                        String data = new String(encodedBytes, StandardCharsets.US_ASCII);
                         readBufferPosition = 0;
                         if(data.length() > 2){
                             try{
