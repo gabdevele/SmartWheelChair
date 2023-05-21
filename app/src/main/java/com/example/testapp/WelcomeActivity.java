@@ -12,7 +12,7 @@ public class WelcomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome);
+        setContentView(R.layout.activity_blank);
         setFragment(new WelcomeScreen());
     }
     private void setFragment(Fragment fragment) {

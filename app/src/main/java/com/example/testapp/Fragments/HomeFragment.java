@@ -1,5 +1,6 @@
 package com.example.testapp.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.testapp.BlankActivity;
 import com.example.testapp.R;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
@@ -56,9 +58,10 @@ public class HomeFragment extends Fragment {
         pieChart.invalidate();
 
         view.findViewById(R.id.go_activity).setOnClickListener(v -> getParentFragmentManager().beginTransaction().replace(R.id.fragment_container, new ActivityFragment()).commit());
-        //TODO: cambiare fragment con quello giusto quando vengono premuti info e raccomandazioni (vedi su WA)
         view.findViewById(R.id.info_continue).setOnClickListener(l -> {
-//            startActivity(new Intent(getContext(), ActivityFragment.class));
+            Intent intent = new Intent(getContext(), BlankActivity.class);
+            intent.putExtra("fragment_id", 0);
+            startActivity(intent);
         });
     }
 
