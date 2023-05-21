@@ -27,7 +27,7 @@ public class ArduinoReadBluetooth implements Runnable{
         try{
             if(socket.isConnected())
                 socket.close();
-        } catch (IOException e){}
+        } catch (IOException ignored){}
     }
     public Double readData() throws Exception{
         final byte delimiter = 10;

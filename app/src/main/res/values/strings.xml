@@ -3,19 +3,19 @@
     <!--  Activity page -->
     <string name="title_activity_nav">Attività</string>
     <string name="title_activity">La tua attività</string>
-    <string name="placeholder_not_started">00:00</string>
-    <string name="unita_newton">N</string>
-    <string name="placeholder_zero">0</string>
+    <string name="placeholder_not_started" translatable="false">00:00</string>
+    <string name="unita_newton" translatable="false">N</string>
+    <string name="placeholder_zero" translatable="false">0</string>
     <string name="nome_forza">Forza</string>
     <string name="nome_calorie">Calorie consumate</string>
     <string name="nome_distanza">Distanza</string>
     <string name="nome_accelerazione">Accelerazione</string>
     <string name="nome_velocita">Velocità</string>
     <string name="unita_kcal">kCal</string>
-    <string name="unita_metri">m</string>
-    <string name="unita_accelerazione">m/s</string>
-    <string name="due_esponente">2</string>
-    <string name="unita_velocita">m/s</string>
+    <string name="unita_metri" translatable="false">m</string>
+    <string name="unita_accelerazione" translatable="false">m/s</string>
+    <string name="due_esponente" translatable="false">2</string>
+    <string name="unita_velocita" translatable="false">m/s</string>
     <string name="inizia_allenemento">Inizia allenemento</string>
     <string name="termina_allenamento">Termina allenamento</string>
     <!--  TipView -->
@@ -59,12 +59,12 @@
     <string name="concedi">Concedi</string>
     <string name="title_peso">Abbiamo quasi finito</string>
     <string name="peso_text">Ci serve solo il tuo peso per i nostri calcoli</string>
-    <string name="unita_calorie">cal</string>
+    <string name="unita_calorie" translatable="false">cal</string>
     <string name="tema_normale">Normale</string>
-    <string name="unita_kmorari">km/h</string>
-    <string name="unita_km">km</string>
+    <string name="unita_kmorari" translatable="false">km/h</string>
+    <string name="unita_km" translatable="false">km</string>
     <string name="setting_mac">Cambia MAC Bluetooth\nNuovo / Vecchio</string>
-    <string name="connessione_in_corso">Connessione in corso...</string>
+    <string name="connessione_in_corso">Connessione in corso…</string>
     <string name="connessione_effettuata">Connessione effettuata!</string>
     <string name="bluetooth_necessario">Bluetooth è necessario per il funzionamento!</string>
     <string name="bluetooth_abilitato">Bluetooth abilitato!</string>

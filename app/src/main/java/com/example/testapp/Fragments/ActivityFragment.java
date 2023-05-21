@@ -58,6 +58,11 @@ public class ActivityFragment extends Fragment {
         loadUnit(view.findViewById(R.id.distU), "distanza", R.string.unita_metri);
         peso = Utilities.getPreference(getContext(), "peso", 0f);
 
+        // Solo per test
+        view.findViewById(R.id.test_btt).setOnClickListener(l -> {
+            Utilities.setStatsValues(getView(), 0.51, peso);
+        });
+
         return view;
     }
 
