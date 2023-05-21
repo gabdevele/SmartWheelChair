@@ -44,10 +44,10 @@
     <string name="setting_calorie">Imposta l\'unita di misura che preferisci per le calorie</string>
     <!--  Home page  -->
     <string name="title_home">Home</string>
-    <string name="obiettivo_giornaliero">Obiettivo giornaliero</string>
-    <string name="title_raccomandazioni">Raccomandazioni</string>
+    <string name="obiettivo_giornaliero">Obiettivo giornaliero\n\n150kCal</string>
+    <string name="title_raccomandazione">Raccomandazione</string>
     <string name="title_informazioni">Informazioni</string>
-    <string name="info_spam">Premi per scoprire altro sul progetto e su questa applicazione.</string>
+    <string name="info_spam">Premi per scoprire altro sul progetto e su questa applicazione</string>
     <string name="vai_alle_attivit">Vai alle attività</string>
     <string name="info_continue">Continua a leggere</string>
 
@@ -69,4 +69,21 @@
     <string name="bluetooth_necessario">Bluetooth è necessario per il funzionamento!</string>
     <string name="bluetooth_abilitato">Bluetooth abilitato!</string>
     <string name="permessi_necessari">Permessi necessari!</string>
+
+    <!-- Info page -->
+    <string name="spam_renato" translatable="false"><a href="https://reloia.github.io/">Renato Loiacono</a></string>
+    <string name="spam_gabriele" translatable="false"><a href="https://github.com/gabdevele/">Gabriele Schiraldi</a></string>
+    <string name="placeholder_no_value">0.00</string>
+    <string name="spam_app"><a href="https://github.com/gabdevele/SmartWheelchair">Codice pubblico dell\'applicazione</a></string>
+    <string name="spam_scuola" ><a href="https://www.iissvoltadegemmis.edu.it/">Sito web dell\'Istituto</a></string>
+<!--  TODO: Aggiungere link alla ricerca -->
+    <string name="spam_ricerca" ><a href="">Link alla ricerca</a></string>
+    <string name="text_progetto">Il nostro progetto mira a migliorare la qualità della vita delle persone con disabilità, dando la possibilità di controllare le proprie calorie consumate.</string>
+    <string name="sub_progetto">Il progetto</string>
+    <string name="sub_chi_siamo">Chi siamo</string>
+    <string name="text_chi_siamo">Siamo un team di ragazzi delle superiori appassionati di meccatronica e informatica dell\'IISS Volta - De Gemmis di Bitonto.</string>
+    <string name="sub_links">Link esterni</string>
+    <string name="text_autori">Autori dell\'applicazione</string>
+    <string name="sub_collegamenti">Collegamenti alla ricerca</string>
+    <string name="text_collegamenti">Per saperne di più sulle ricerche dietro il nostro progetto, visita i seguenti link:</string>
 </resources>

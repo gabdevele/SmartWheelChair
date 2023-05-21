@@ -1,16 +1,20 @@
 <resources>
     <!-- Base application theme. -->
     <style name="Theme.TestApp" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Primary brand color. -->
         <item name="colorPrimary">@color/blue</item>
         <item name="colorPrimaryVariant">@color/blue3</item>
         <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/blue</item>
-        <item name="colorSecondaryVariant">@color/blue3</item>
-        <item name="colorOnSecondary">@color/white</item>
-        <!-- Status bar color. -->
+
         <item name="android:statusBarColor">?attr/colorPrimary</item>
         <!-- Customize your theme here. -->
+    </style>
+    <!-- Blank Activity theme -->
+    <style name="BlankTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryVariant">@color/blue3</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
+
     </style>
 </resources>

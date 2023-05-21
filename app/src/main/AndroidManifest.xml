@@ -19,6 +19,7 @@
         android:theme="@style/Theme.TestApp">
         <activity
             android:name=".BlankActivity"
+            android:theme="@style/BlankTheme"
             android:exported="false" />
         <activity
             android:name=".WelcomeActivity"

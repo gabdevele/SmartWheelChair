@@ -3,6 +3,7 @@ package com.example.testapp;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.TextView;
 
@@ -51,7 +52,7 @@ public class Utilities {
         double pesoTotale = (peso+16.0);
         double oldV = Double.parseDouble((String) veloV.getText());
 
-        veloV.setText(String.valueOf(velocity * veloMol));
+        veloV.setText(String.valueOf(roundTo(velocity * veloMol, 2)));
         updateStat(distV, velocity, distMol);
         updateStat(caloV, calculateCalories(velocity,peso), caloMol);
         double accelerazione = (velocity-(oldV / veloMol))/2;
@@ -64,7 +65,13 @@ public class Utilities {
          *
          * Formula: pesoTotale*accelerazione+pesoTotale*gravità+coefficiente
          */
-        forzV.setText(String.valueOf(roundTo(pesoTotale*accelerazione + pesoTotale*9.81*0.02, 2)));
+        if ((accelerazione == 0f) && (velocity == 0f)) {
+            forzV.setText(R.string.placeholder_no_value);
+            return;
+        }
+        forzV.setText(
+                String.valueOf(roundTo(pesoTotale*accelerazione + pesoTotale*9.81*0.02, 2))
+        );
     }
     private static void updateStat(TextView v, Double newValue, double mul) {
         double result = (
@@ -72,8 +79,8 @@ public class Utilities {
                         (String) v.getText()
                 ) / mul) + newValue
         ) * mul;
-        if (mul != 0.001) result = roundTo(result, 2);
-        else result = roundTo(result, 5);
+        if (mul == 0.001) result = roundTo(result, 5);
+        else result = roundTo(result, 2);
         v.setText(
                 String.valueOf(result)
         );
@@ -119,4 +126,7 @@ public class Utilities {
         return sharedPreferences.getBoolean(key, def);
     }
 
+    public static void makeLinkClickable(TextView view) {
+        view.setMovementMethod(LinkMovementMethod.getInstance());
+    }
 }
