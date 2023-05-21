@@ -280,7 +280,7 @@
             android:gravity="bottom|center"
             android:layout_marginBottom="32dp"
             android:orientation="vertical">
-            <Button
+            <!--<Button
                 android:id="@+id/test_btt"
                 android:layout_width="340dp"
                 android:layout_height="wrap_content"
@@ -289,7 +289,7 @@
                 android:text="Test dati 0.51 m/s"
                 android:textColor="@color/cold_white"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold" />-->
             <Button
                 android:id="@+id/button"
                 android:layout_width="340dp"

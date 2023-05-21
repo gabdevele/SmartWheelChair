@@ -59,9 +59,9 @@ public class ActivityFragment extends Fragment {
         peso = Utilities.getPreference(getContext(), "peso", 0f);
 
         // Solo per test
-        view.findViewById(R.id.test_btt).setOnClickListener(l -> {
+        /*view.findViewById(R.id.test_btt).setOnClickListener(l -> {
             Utilities.setStatsValues(getView(), 0.51, peso);
-        });
+        });*/
 
         return view;
     }
@@ -102,7 +102,6 @@ public class ActivityFragment extends Fragment {
             requestPermissionLauncher.launch(Manifest.permission.BLUETOOTH_CONNECT);
             return;
         }
-        // TODO: usare BluetoothManager.getAdapter() dato che questo è obsoleto?
         if (!BluetoothAdapter.getDefaultAdapter().isEnabled()) {
             Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             requestEnableBluetoothLauncher.launch(enableBtIntent);

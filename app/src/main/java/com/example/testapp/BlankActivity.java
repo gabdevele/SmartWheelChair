@@ -9,7 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.testapp.Fragments.Pages.InfoFragment;
+import com.example.testapp.Fragments.InfoFragment;
 
 /**
  * Usata per visualizzare pagine minori,

@@ -1,4 +1,4 @@
-package com.example.testapp.Fragments.Pages;
+package com.example.testapp.Fragments;
 
 import android.os.Bundle;
 

@@ -1,70 +1,121 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".BlankActivity"
     android:orientation="vertical"
+    android:paddingVertical="25dp"
     android:paddingHorizontal="15dp">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="15dp"
         >
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="32sp"
-            android:textColor="@color/blue3"
-            android:text="@string/sub_chi_siamo"
-            />
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="258dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/eloquia_bold"
+                android:text="@string/sub_chi_siamo"
+                android:textColor="@color/blue2"
+                android:textSize="27sp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:layout_weight="0"
+                app:srcCompat="@drawable/round_info_24"
+                app:tint="@color/disabled" />
+
+        </LinearLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:text="@string/text_chi_siamo"
+            android:fontFamily="@font/eloquia_light"
             />
     </LinearLayout>
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="15dp"
         >
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="32sp"
-            android:textColor="@color/blue3"
-            android:text="@string/sub_progetto"
-            />
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="258dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/eloquia_bold"
+                android:text="@string/sub_progetto"
+                android:textColor="@color/blue2"
+                android:textSize="27sp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                app:tint="@color/disabled"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:layout_weight="0"
+                app:srcCompat="@drawable/round_article_24" />
+
+        </LinearLayout>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:text="@string/text_progetto"
+            android:fontFamily="@font/eloquia_light"
             />
     </LinearLayout>
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="15dp"
         >
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="32sp"
-            android:textColor="@color/blue3"
-            android:text="@string/sub_links"
-            />
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="258dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/eloquia_bold"
+                android:text="@string/sub_links"
+                android:textColor="@color/blue2"
+                android:textSize="27sp" />
+
+            <ImageView
+                app:tint="@color/disabled"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:layout_weight="0"
+                app:srcCompat="@drawable/round_link_24" />
+
+        </LinearLayout>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:textSize="20sp"
             android:text="@string/text_autori"
+            android:fontFamily="@font/eloquia_light"
             />
         <LinearLayout
             android:layout_width="match_parent"
@@ -75,7 +126,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:text="@string/spam_renato"
                 />
             <TextView
@@ -84,7 +135,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textAlignment="textEnd"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:text="@string/spam_gabriele"
                 />
         </LinearLayout>
@@ -109,19 +160,36 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="15dp"
         >
-        <TextView
-            android:layout_width="wrap_content"
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="32sp"
-            android:textColor="@color/blue3"
-            android:text="@string/sub_collegamenti"
-            />
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="258dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/eloquia_bold"
+                android:text="@string/sub_collegamenti"
+                android:textColor="@color/blue2"
+                android:textSize="27sp" />
+
+            <ImageView
+                app:tint="@color/disabled"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="end"
+                android:layout_weight="0"
+                app:srcCompat="@drawable/round_dataset_linked_24" />
+
+        </LinearLayout>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
+            android:fontFamily="@font/eloquia_light"
             android:text="@string/text_collegamenti"
             />
         <TextView
