@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 
-import com.example.testapp.Fragments.Welcome.WelcomeScreen;
+import com.example.testapp.fragments.welcome.WelcomeScreen;
 
 public class WelcomeActivity extends AppCompatActivity {
 

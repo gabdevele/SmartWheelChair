@@ -1,4 +1,4 @@
-package com.example.testapp.Fragments;
+package com.example.testapp.fragments;
 
 import android.os.Bundle;
 
@@ -7,11 +7,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.testapp.R;
 import com.example.testapp.Utilities;

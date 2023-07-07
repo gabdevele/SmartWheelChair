@@ -7,9 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.testapp.Fragments.ActivityFragment;
-import com.example.testapp.Fragments.HomeFragment;
-import com.example.testapp.Fragments.SettingsFragment;
+import com.example.testapp.fragments.ActivityFragment;
+import com.example.testapp.fragments.HomeFragment;
+import com.example.testapp.fragments.SettingsFragment;
 import com.example.testapp.databinding.ActivityMainBinding;
 
 

@@ -1,4 +1,4 @@
-package com.example.testapp.Threads;
+package com.example.testapp.threads;
 
 import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
@@ -17,7 +17,7 @@ public class ArduinoConnectBluetooth implements Runnable {
     private Context context;
     private final AsyncResponse delegate;
     private static final UUID SERVICE_ID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
-    private static String ADDRESS;
+    private String ADDRESS;
     private BluetoothSocket socket;
     private InputStream inputStream;
 
@@ -53,7 +53,7 @@ public class ArduinoConnectBluetooth implements Runnable {
         try{
             if(socket.isConnected())
                 socket.close();
-        } catch (IOException e){}
+        } catch (IOException ignored){}
     }
 
     @Override

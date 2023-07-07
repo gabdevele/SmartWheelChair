@@ -1,4 +1,4 @@
-package com.example.testapp.Threads;
+package com.example.testapp.threads;
 
 import android.bluetooth.BluetoothSocket;
 import android.os.Handler;

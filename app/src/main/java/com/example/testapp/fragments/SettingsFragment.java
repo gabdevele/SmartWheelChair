@@ -1,4 +1,4 @@
-package com.example.testapp.Fragments;
+package com.example.testapp.fragments;
 
 import android.os.Bundle;
 
@@ -20,7 +20,6 @@ import com.example.testapp.Utilities;
 
 import java.util.Arrays;
 import java.util.Objects;
-
 
 public class SettingsFragment extends Fragment {
     public SettingsFragment() {
@@ -53,6 +52,40 @@ public class SettingsFragment extends Fragment {
             }
         };
     }
+
+    /**
+     * Crea un nuovo watcher per le impostazioni,
+     * per il MAC input
+     */
+    private TextWatcher makeWatcher(int nextElement, int[] elements) {
+        return new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String text = s.toString();
+                if (text.isEmpty()) return;
+                if (text.length() == 2) { // Se il mac è stato completato
+                    if (nextElement == -1) {
+                        String[] testi = Arrays.stream(elements).mapToObj(l -> {
+                                    if (l == -1) return "";
+                                    return ((EditText) getView().findViewById(l)).getText().toString().toUpperCase();
+                                }
+                        ).toArray(String[]::new);
+
+                        Utilities.setPreference(getContext(), "mac", String.join(":", Arrays.copyOf(testi, testi.length-1)));
+                        return;
+                    }
+                    getView().findViewById(nextElement).requestFocus();
+                }
+
+            }
+        };
+    }
     /**
      * Crea un nuovo listener per le impostazioni
      */
@@ -82,10 +115,14 @@ public class SettingsFragment extends Fragment {
         spinner.setSelection(Arrays.asList(unita).indexOf(calorie));
     }
 
+    private boolean firstStart = true;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
+
+        int[] mac_ids = { R.id.mac_1, R.id.mac_2, R.id.mac_3, R.id.mac_4, R.id.mac_5, R.id.mac_6, -1 };
+        this.firstStart = true;
 
         EditText pesoInput = view.findViewById(R.id.pesoInput);
         float peso = Utilities.getPreference(getContext(), "peso", 0f);
@@ -98,8 +135,32 @@ public class SettingsFragment extends Fragment {
         setupSpinner(new String[]{getString(R.string.unita_km), getString(R.string.unita_metri)}, "distanza", view.findViewById(R.id.distanzaSpinner));
 
         SwitchCompat macSwitch = view.findViewById(R.id.switch_mac);
-        macSwitch.setOnCheckedChangeListener((v, checked) -> Utilities.setPreference(getContext(), "mac", checked ? "98:D3:31:F5:2E:C7" : "00:18:E4:34:C7:1A"));
-        if (!Objects.equals(Utilities.getPreference(getContext(), "mac", "00:18:E4:34:C7:1A"), "00:18:E4:34:C7:1A")) macSwitch.toggle();
+        String mac = Utilities.getPreference(getContext(), "mac", "00:18:E4:34:C7:1A");
+        macSwitch.setOnCheckedChangeListener((v, checked) -> {
+            String newMac = checked ? "98:D3:31:F5:2E:C7" : "00:18:E4:34:C7:1A";
+            if (!firstStart) {
+                for (int i = 0; i < mac_ids.length; i++) {
+                    if (i == 6) break;
+                    EditText mac_view = view.findViewById(mac_ids[i]);
+                    mac_view.setText(newMac.split(":")[i]);
+                }
+                Utilities.setPreference(getContext(), "mac", newMac);
+            }
+            this.firstStart = false;
+        });
+
+        if (!Objects.equals(mac, "00:18:E4:34:C7:1A")) macSwitch.toggle();
+
+        String[] mac_elements = mac.split(":");
+
+        for (int i = 0; i < mac_ids.length; i++) {
+            if (i == 6) break;
+            EditText mac_view = view.findViewById(mac_ids[i]);
+            mac_view.setText(mac_elements[i]);
+            mac_view.addTextChangedListener(makeWatcher(mac_ids[i+1], mac_ids));
+        }
+
         return view;
     }
+
 }

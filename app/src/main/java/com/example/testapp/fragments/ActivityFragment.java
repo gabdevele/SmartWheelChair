@@ -1,4 +1,4 @@
-package com.example.testapp.Fragments;
+package com.example.testapp.fragments;
 
 import android.Manifest;
 import android.app.Activity;
@@ -21,8 +21,8 @@ import android.widget.Chronometer;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.testapp.R;
-import com.example.testapp.Threads.ArduinoConnectBluetooth;
-import com.example.testapp.Threads.ArduinoReadBluetooth;
+import com.example.testapp.threads.ArduinoConnectBluetooth;
+import com.example.testapp.threads.ArduinoReadBluetooth;
 import com.example.testapp.Utilities;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.io.InputStream;

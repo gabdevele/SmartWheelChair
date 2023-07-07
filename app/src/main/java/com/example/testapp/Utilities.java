@@ -57,13 +57,13 @@ public class Utilities {
         updateStat(caloV, calculateCalories(velocity,peso), caloMol);
         double accelerazione = (velocity-(oldV / veloMol))/2;
         acceV.setText(String.valueOf(roundTo(accelerazione, 2)));
-        /**
-         * 16 è il peso della sedia a rotelle
-         * 0.02 è il coefficiente di attrito scelto
-         * 9.81 è la forza di gravità
-         * pesoTotale = (peso_persona+peso_sedia)
-         *
-         * Formula: pesoTotale*accelerazione+pesoTotale*gravità+coefficiente
+        /*
+          16 è il peso della sedia a rotelle
+          0.02 è il coefficiente di attrito scelto
+          9.81 è la forza di gravità
+          pesoTotale = (peso_persona+peso_sedia)
+
+          Formula: pesoTotale*accelerazione+pesoTotale*gravità+coefficiente
          */
         if ((accelerazione == 0f) && (velocity == 0f)) {
             forzV.setText(R.string.placeholder_no_value);

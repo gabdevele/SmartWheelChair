@@ -49,7 +49,7 @@
     <string name="title_informazioni">Informazioni</string>
     <string name="info_spam">Premi per scoprire altro sul progetto e su questa applicazione</string>
     <string name="vai_alle_attivit">Vai alle attività</string>
-    <string name="info_continue">Continua a leggere</string>
+    <string name="info_continue"><u>Continua a leggere</u></string>
 
     <string name="next">Avanti</string>
     <string name="welcome_text">Il nostro obiettivo è aiutarti a monitorare la tua attività fisica</string>
@@ -63,7 +63,7 @@
     <string name="tema_normale">Normale</string>
     <string name="unita_kmorari" translatable="false">km/h</string>
     <string name="unita_km" translatable="false">km</string>
-    <string name="setting_mac">Cambia MAC Bluetooth\nNuovo / Vecchio</string>
+    <string name="setting_mac">Cambia MAC Bluetooth</string>
     <string name="connessione_in_corso">Connessione in corso…</string>
     <string name="connessione_effettuata">Connessione effettuata!</string>
     <string name="bluetooth_necessario">Bluetooth è necessario per il funzionamento!</string>
@@ -85,4 +85,6 @@
     <string name="text_autori">Autori dell\'applicazione</string>
     <string name="sub_collegamenti">Collegamento alle ricerche</string>
     <string name="text_collegamenti">Per saperne di più sulle ricerche dietro il nostro progetto, visita il seguente link:</string>
+    <string name="text_raccomandazione">Si raccomanda di percorrere dai 3 ai 5 kilometri al giorno per 5 giorni ogni settimana</string>
+    <string name="divider_mac">:</string>
 </resources>
