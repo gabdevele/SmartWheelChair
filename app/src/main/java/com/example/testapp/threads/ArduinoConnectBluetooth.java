@@ -1,10 +1,13 @@
 package com.example.testapp.threads;
 
+import static android.Manifest.permission.BLUETOOTH_CONNECT;
+
 import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Context;
+import android.os.Build;
 import android.os.Handler;
 
 import com.example.testapp.Utilities;
@@ -35,9 +38,14 @@ public class ArduinoConnectBluetooth implements Runnable {
         BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if(!bluetoothAdapter.isEnabled())
             throw new Exception("Bluetooth non attivo");
-        if(!Utilities.checkPermission(context, Manifest.permission.BLUETOOTH_CONNECT)){
-            throw new Exception("Permessi non concessi");
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            if (!Utilities.checkPermission(context, BLUETOOTH_CONNECT))
+                throw new Exception("Permessi non concessi");
+        } else {
+            if (!Utilities.checkPermission(context, Manifest.permission.BLUETOOTH) || !Utilities.checkPermission(context, Manifest.permission.BLUETOOTH_ADMIN))
+                throw new Exception("Permessi non concessi");
         }
+
         BluetoothDevice hc05 = bluetoothAdapter.getRemoteDevice(ADDRESS);
         try{
             socket = hc05.createRfcommSocketToServiceRecord(SERVICE_ID);

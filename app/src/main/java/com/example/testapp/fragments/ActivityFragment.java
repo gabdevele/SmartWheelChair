@@ -6,10 +6,6 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.SystemClock;
@@ -20,11 +16,19 @@ import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
+
 import com.example.testapp.R;
+import com.example.testapp.Utilities;
 import com.example.testapp.threads.ArduinoConnectBluetooth;
 import com.example.testapp.threads.ArduinoReadBluetooth;
-import com.example.testapp.Utilities;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.io.InputStream;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -98,31 +102,44 @@ public class ActivityFragment extends Fragment {
     }
 
     private void startHandler(View v) {
-        if (!Utilities.checkPermission(getContext(), Manifest.permission.BLUETOOTH_CONNECT)) {
-            requestPermissionLauncher.launch(Manifest.permission.BLUETOOTH_CONNECT);
-            return;
+        if (android.os.Build.VERSION.SDK_INT >= 31) {
+            if (!Utilities.checkPermission(getActivity(), Manifest.permission.BLUETOOTH_CONNECT)) {
+                requestPermissionLauncher.launch(Manifest.permission.BLUETOOTH_CONNECT);
+                return;
+            }
+        } else {
+            if (!Utilities.checkPermission(getActivity(), Manifest.permission.BLUETOOTH) || !Utilities.checkPermission(getActivity(), Manifest.permission.BLUETOOTH_ADMIN)) {
+                ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.BLUETOOTH, Manifest.permission.BLUETOOTH_ADMIN}, 1);
+                return;
+            }
         }
+
+        ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.BLUETOOTH, Manifest.permission.BLUETOOTH_ADMIN}, 1);
+
         if (!BluetoothAdapter.getDefaultAdapter().isEnabled()) {
             Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             requestEnableBluetoothLauncher.launch(enableBtIntent);
             return;
         }
-        Toast.makeText(getContext(), R.string.connessione_in_corso, Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(), R.string.connessione_in_corso, Toast.LENGTH_LONG).show();
         setBottomNavigation(false);
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         Handler handler = new Handler(Looper.getMainLooper());
-        executorService.execute(new ArduinoConnectBluetooth(getContext(), (s, inputStream, e) -> {
-            if (e != null) {
+        executorService.execute(new ArduinoConnectBluetooth(getActivity(), (bluetoothSocket, inputStream, error) -> {
+            if (error != null) {
                 getActivity().runOnUiThread(
-                        () -> Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show()
+                        () -> {
+                            error.printStackTrace();
+                            Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
                 );
-            }else {
+            } else {
                 getActivity().runOnUiThread(
                         () -> Toast.makeText(getContext(), R.string.connessione_effettuata, Toast.LENGTH_SHORT).show()
                 );
                 startButton.setText(R.string.termina_allenamento);
                 startButton.setOnClickListener(this::stopHandler);
-                this.bluetoothSocket = s;
+                this.bluetoothSocket = bluetoothSocket;
                 this.inputStream = inputStream;
                 chronometer.setBase(SystemClock.elapsedRealtime());
                 chronometer.start();
@@ -163,6 +180,20 @@ public class ActivityFragment extends Fragment {
             }
         }
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode == 1) {
+            if (grantResults.length > 0 && grantResults[0] == android.content.pm.PackageManager.PERMISSION_GRANTED) {
+                startHandler(getView());
+            } else {
+                Toast.makeText(getContext(), R.string.permessi_necessari, Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
 
     private void stopHandler(View v) {
         startButton.setText(R.string.inizia_allenemento);
